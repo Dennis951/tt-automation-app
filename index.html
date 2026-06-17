@@ -3,52 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TT Automation</title>
+  <title>TT Automation — desktop tool for posting your own clips to TikTok</title>
+  <meta name="description" content="TT Automation is a personal desktop app that uploads your own finished video clips to your own TikTok account after an on-screen preview and explicit confirmation.">
   <style>
-    :root { color-scheme: light dark; }
-    body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-           max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem; line-height: 1.6;
-           color: #1a1a1a; background: #ffffff; }
-    h1 { font-size: 1.9rem; margin-bottom: .25rem; }
-    .sub { color: #666; margin-top: 0; }
-    h2 { margin-top: 2rem; font-size: 1.25rem; }
-    a { color: #fe2c55; }
-    footer { margin-top: 3rem; font-size: .9rem; color: #888; border-top: 1px solid #eee; padding-top: 1rem; }
-    @media (prefers-color-scheme: dark) {
-      body { color: #e8e8e8; background: #0d0d12; }
-      .sub, footer { color: #9aa; }
-      footer { border-top-color: #222; }
-    }
+    :root { color-scheme: light dark; --fg:#1a1a1a; --bg:#ffffff; --muted:#666; --card:#f6f6f8; --line:#e8e8ee; --accent:#fe2c55; }
+    @media (prefers-color-scheme: dark){ :root{ --fg:#e8e8e8; --bg:#0d0d12; --muted:#9aa; --card:#15151c; --line:#23232c; } }
+    * { box-sizing: border-box; }
+    body { font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--fg); background:var(--bg); margin:0; line-height:1.65; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.25rem; }
+    header { border-bottom:1px solid var(--line); }
+    nav { display:flex; align-items:center; justify-content:space-between; padding: 1rem 0; }
+    .brand { font-weight:600; font-size:1.15rem; }
+    .brand span { color:var(--accent); }
+    nav a { color:var(--muted); text-decoration:none; margin-left:1.25rem; font-size:.95rem; }
+    nav a:hover { color:var(--fg); }
+    .hero { padding: 3rem 0 2rem; }
+    .hero h1 { font-size: 2.1rem; line-height:1.2; margin:.2rem 0 .6rem; }
+    .hero p.lead { font-size:1.15rem; color:var(--muted); max-width:46ch; }
+    h2 { font-size:1.4rem; margin-top:2.5rem; }
+    h3 { font-size:1.05rem; margin:.2rem 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.1rem 1.25rem; }
+    .card p { color:var(--muted); margin:.4rem 0 0; font-size:.95rem; }
+    ol.steps { padding-left:1.1rem; } ol.steps li { margin:.6rem 0; }
+    .faq dt { font-weight:600; margin-top:1rem; }
+    .faq dd { margin:.25rem 0 0; color:var(--muted); }
+    a { color:var(--accent); }
+    footer { border-top:1px solid var(--line); margin-top:3rem; padding:1.5rem 0 2.5rem; color:var(--muted); font-size:.9rem; }
+    footer a { color:var(--muted); }
   </style>
 </head>
 <body>
-  <h1>TT Automation</h1>
-  <p class="sub">A personal desktop tool for posting your own video clips to your own TikTok accounts.</p>
+  <header><div class="wrap"><nav>
+    <span class="brand">TT<span>·</span>Automation</span>
+    <span>
+      <a href="#how">How it works</a>
+      <a href="#tiktok">TikTok integration</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </span>
+  </nav></div></header>
 
-  <h2>What it does</h2>
-  <p>
-    TT Automation is a personal desktop application used by its owner to upload their own
-    finished video clips to their own TikTok account(s). Before anything is posted, the app
-    shows an on-screen preview of the clip together with the connected account, a privacy-level
-    selector, and interaction settings. The video is only uploaded and published after the
-    owner explicitly confirms it. Nothing is posted without that confirmation.
-  </p>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Post your own video clips to your own TikTok — after a preview and a click.</h1>
+      <p class="lead">TT Automation is a personal desktop application. It uploads finished video
+      clips that you select to your own TikTok account, and only after you preview the clip and
+      confirm. Nothing is posted automatically or without your explicit confirmation.</p>
+    </section>
 
-  <h2>How it connects to TikTok</h2>
-  <p>
-    The app uses TikTok's official <strong>Login Kit</strong> so the account owner can authorize
-    their own account, and the <strong>Content Posting API</strong> to upload the selected video
-    file. It only ever acts on accounts the owner has personally connected.
-  </p>
+    <section>
+      <h2>What it does</h2>
+      <div class="grid">
+        <div class="card"><h3>Preview before posting</h3><p>Every clip is shown with a preview,
+          the connected account, a caption, and a privacy selector before anything is sent.</p></div>
+        <div class="card"><h3>You stay in control</h3><p>Comments, duet and stitch are off by
+          default; you choose the privacy level. The post only happens when you click confirm.</p></div>
+        <div class="card"><h3>Your own accounts</h3><p>It only ever acts on TikTok accounts that
+          you personally authorize via TikTok's official login.</p></div>
+      </div>
+    </section>
 
-  <h2>Legal</h2>
-  <p>
-    <a href="privacy.html">Privacy Policy</a> &middot;
-    <a href="terms.html">Terms of Service</a>
-  </p>
+    <section id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>Connect your account.</strong> You authorize your own TikTok account through
+          TikTok's official Login Kit (OAuth). You can revoke access anytime in your TikTok settings.</li>
+        <li><strong>Pick a clip and review.</strong> A review screen shows a preview of the clip,
+          your account name, the caption, the privacy level, and interaction settings.</li>
+        <li><strong>Confirm to post.</strong> When you choose a privacy level and click confirm, the
+          app uploads and posts the clip you confirmed — and only that clip.</li>
+      </ol>
+    </section>
 
-  <footer>
+    <section id="tiktok">
+      <h2>How it uses TikTok</h2>
+      <div class="grid">
+        <div class="card"><h3>Login Kit</h3><p>Used so the account owner can securely authorize
+          their own account (scope <code>user.info.basic</code>).</p></div>
+        <div class="card"><h3>Content Posting API</h3><p>Used to upload the selected video and, after
+          your confirmation, publish it to your account (<code>video.publish</code> / <code>video.upload</code>).</p></div>
+      </div>
+      <p style="color:var(--muted); margin-top:1rem;">The app does not collect or share any data with
+      third parties and does not run analytics. Access tokens are stored locally on the owner's own
+      computer. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+      <dl>
+        <dt>Who is this for?</dt>
+        <dd>It is single-user software, run locally by its owner to post to their own TikTok account(s).</dd>
+        <dt>Does it post anything automatically?</dt>
+        <dd>No. Every post requires an on-screen preview and an explicit confirmation by the owner.</dd>
+        <dt>How do I revoke access?</dt>
+        <dd>In your TikTok app under Settings → Security &amp; permissions → Manage app permissions, or by
+          deleting the app's local credential file.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer><div class="wrap">
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp;
     Contact: <a href="mailto:jaufmann.d@gmail.com">jaufmann.d@gmail.com</a>
-  </footer>
+  </div></footer>
 </body>
 </html>
